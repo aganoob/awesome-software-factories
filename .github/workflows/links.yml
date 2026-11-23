@@ -7,13 +7,26 @@ on:
   schedule:
     - cron: "0 6 * * 1"
 
+permissions:
+  contents: read
+  issues: write
+
 jobs:
   lychee:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
       - name: Check links
+        id: lychee
         uses: lycheeverse/lychee-action@v2
         with:
-          args: --no-progress --accept 200,204,206,301,302,303,307,308,403,429,999 --exclude-path node_modules README.md CONTRIBUTING.md
-          fail: true
+          # Slow personal blogs time out from runners now and then; retry before reporting.
+          args: --no-progress --timeout 30 --max-retries 5 --retry-wait-time 10 --accept 200,204,206,301,302,303,307,308,403,429,999 --exclude-path node_modules README.md CONTRIBUTING.md
+          # One dead link should not turn every push red; the weekly run files an issue instead.
+          fail: false
+      - name: Open issue for broken links
+        if: github.event_name == 'schedule' && steps.lychee.outputs.exit_code != 0
+        uses: peter-evans/create-issue-from-file@v5
+        with:
+          title: Broken links report
+          content-filepath: ./lychee/out.md
