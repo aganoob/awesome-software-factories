@@ -369,7 +369,6 @@ Run many agent sessions at once, each in its own worktree, and review their outp
 | [Camelot](https://github.com/T0ha/camelot) | Kanban-based coding agent orchestrator in Elixir, built on KISS. | 23 | 2026-11-19 |
 | [Althar](https://github.com/AltharIDE/althar) | Desktop IDE where a coordinator assigns coding agents to tasks and another model reviews their work. `Backends: Claude Code, Codex, OpenCode, GitHub Copilot, Junie` | 22 | 2026-11-22 |
 | [Squad (bradygaster)](https://github.com/bradygaster/squad) | Copilot-based lead, frontend, backend, and tester agents that live in the repo as files, with knowledge compounding through committed decisions. `Backends: Copilot` | 9 | 2026-11-05 |
-| [Proliferate](https://github.com/proliferate-ai/proliferate) | Agent IDE that runs sessions locally or in the cloud, with reusable workflows. | — | — |
 | [Sqwakie](https://sqwakie.si) | One live dashboard and peer-to-peer messaging for the Claude Code and Codex agents running across a team's machines, with project kanbans whose cards agents can start, review, and finish. Free for 2 people, paid plans per person, FSL-1.1-ALv2 license. `Backends: Claude Code, Codex` `💰` | — | — |
 
 ## Isolation: worktrees and sandboxes
