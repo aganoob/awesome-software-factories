@@ -24,11 +24,13 @@ A project does **not** belong here if it is:
 ## How to add an entry
 
 1. Fork and create a branch.
-2. Add your entry in the right section, in alphabetical order, using this format:
+2. Add a row at the bottom of the table in the right section, using this format:
 
    ```markdown
-   - [Name](https://github.com/owner/repo) - One plain-English sentence saying what it does. `Backends: Claude Code, Codex`
+   | [Name](https://github.com/owner/repo) | One plain-English sentence saying what it does. `Backends: Claude Code, Codex` | | |
    ```
+
+   Leave the Stars and Last commit cells empty (tables without those columns have only two cells). Running `npm run stars` fills them in and sorts every table by stars, then by last commit.
 
    - Keep the description to one sentence. Say what it does, not how great it is.
    - List the agent backends it supports if that is meaningful.
